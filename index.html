@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1226">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>مرجع CSS العملي</title>
+<style>
+:root{--bg:#0b1226;--pn:#111b36;--ln:#22305a;--bl:#2965f1;--sel:#c792ea;--pr:#7fd4ff;--vl:#ffb86b;--pu:#6f7fa6;--cm:#7ccf9a;--tx:#e6ecfa;--mu:#9aa8cc}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.8 system-ui,"Noto Naskh Arabic",sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+header{padding:20px 14px 10px;text-align:center;background:linear-gradient(180deg,#14246b,var(--bg))}
+.logo{display:inline-block;direction:ltr;background:var(--bl);color:#fff;font:800 28px ui-monospace,monospace;padding:6px 18px 10px;border-radius:6px 6px 22px 22px;box-shadow:0 6px 0 #1b3fa8}
+h1{margin:12px 0 2px;font-size:23px}
+.cm{direction:ltr;color:var(--cm);font:13px ui-monospace,monospace}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 12px;border-bottom:1px solid var(--ln)}
+#q{width:100%;padding:11px 14px;font:inherit;color:var(--tx);background:var(--pn);border:1px solid var(--ln);border-radius:10px}
+#q:focus{outline:2px solid var(--bl)}
+#chips{display:flex;gap:6px;overflow-x:auto;padding:9px 0 2px}
+#chips button{flex:none;padding:3px 12px;border:1px solid var(--ln);border-radius:99px;background:var(--pn);color:var(--tx);font:inherit;font-size:14px}
+#chips button.on{background:var(--bl);border-color:var(--bl)}
+main{max-width:720px;margin:auto;padding:14px 12px 40px}
+.g{margin:22px 4px 10px}
+.g h2{margin:0;font-size:21px;color:var(--sel)}
+.g p{margin:0;color:var(--mu);font-size:14.5px}
+.c{background:var(--pn);border:1px solid var(--ln);border-radius:14px;padding:12px 14px;margin-bottom:14px}
+.t{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ar{font-weight:700;font-size:17px}
+.en{direction:ltr;unicode-bidi:isolate;color:var(--pr);font:600 13px ui-monospace,monospace}
+.c>p{margin:2px 0 8px;color:var(--mu);font-size:15px}
+.sp{flex:none;border:1px solid var(--ln);background:#0e1730;color:var(--tx);border-radius:99px;padding:3px 11px;font:inherit;font-size:13px}
+.l{font-size:12.5px;color:var(--cm);margin:8px 0 3px}
+pre,textarea{direction:ltr;text-align:left;display:block;width:100%;margin:0;padding:9px 12px;background:#080e20;color:var(--tx);border:1px solid var(--ln);border-inline-start:3px solid var(--bl);border-radius:8px;font:13.5px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-x:auto;resize:vertical}
+textarea{border-inline-start-color:var(--vl)}
+textarea:focus{outline:2px solid var(--vl)}
+.tg{color:var(--sel)}.at{color:var(--pr)}.sv{color:var(--vl)}
+iframe{display:block;width:100%;height:130px;border:0;border-radius:8px;background:#fff}
+.e{text-align:center;color:var(--mu);padding:40px}
+#inst{margin-top:10px;padding:6px 16px;border:0;border-radius:99px;background:#fff;color:#14246b;font:700 14px system-ui}
+#inst[hidden]{display:none}
+.th{border-inline-start-color:var(--bl)}
+.bs{display:flex;gap:8px;margin-top:8px}
+.bt{flex:1;padding:9px;border:1px solid var(--ln);border-radius:10px;background:#0e1730;color:var(--tx);font:inherit;font-size:14px}
+.bt:first-child{background:var(--bl);border-color:var(--bl)}
+.ex{margin-top:10px;padding:10px 12px;border-radius:10px;background:#1a2550;border:1px dashed var(--vl);font-size:15px}
+.st{margin-top:4px;color:var(--mu);font-size:14px}.st.ok{color:#7ccf9a;font-weight:700}
+#tz{position:fixed;inset:auto 12px calc(16px + env(safe-area-inset-bottom)) 12px;background:#1b2a5c;border:1px solid var(--bl);border-radius:10px;padding:10px 14px;opacity:0;transition:.3s;pointer-events:none;z-index:9;text-align:center;font-size:14px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">CSS{ }</div>
+<h1>مرجع CSS العملي</h1>
+<div class="cm">/* عدّل الكود · شاهد النتيجة · حل التمارين */</div>
+<button id="inst" hidden>⬇ ثبّت التطبيق</button>
+</header>
+<div class="bar">
+<input id="q" type="search" placeholder="ابحث: font، margin، ظل، توسيط…">
+<div id="chips"></div>
+</div>
+<main id="m"></main>
+<script>
+const B='body{margin:0;padding:14px;font:16px/1.6 system-ui,sans-serif;color:#1b2430;background:#fff;direction:rtl}';
+const P='<p class="b">مرحباً بك في عالم CSS</p>';
+const LP='<p class="b">هذا نص طويل بعض الشيء، ليظهر لك الفرق بين الأسطر عندما نغيّر ارتفاع السطر.</p>';
+const D='<div class="b">صندوق</div>';
+const S3='<div class="b"><span>1</span><span>2</span><span>3</span></div>';
+const S6='<div class="b"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>';
+const FS='.b{background:#eef3ff;padding:8px}.b span{background:#2965f1;color:#fff;padding:8px 14px;border-radius:6px;text-align:center}';
+const PS='.box{position:relative;height:90px;background:#eef3ff;border:1px solid #c7d6ff}.b{background:#2965f1;color:#fff;padding:4px 10px}';
+const PH='<div class="box"><span class="b">أنا العنصر</span></div>';
+// [الاسم، الترجمة، الشرح، CSS، HTML، CSS مساعد]
+const G=[
+["font","الخط","أشكال الحروف. خصائصه الخمس تجتمع في اختصار واحد اسمه font.",[
+["font-size","حجم الخط","يحدد كِبَر الحروف. px ثابت، وrem نسبة لحجم الصفحة الأساسي.","font-size: 28px;",P],
+["font-weight","سُمك الخط","رقم من مئة إلى تسعمئة. أربعمئة عادي وسبعمئة عريض.","font-weight: 700;",P],
+["font-style","نمط الخط","italic يجعل الخط مائلاً.","font-style: italic;",P],
+["font-family","نوع الخط","اسم الخط، ويليه خط احتياطي إن لم يوجد الأول.","font-family: Georgia, serif;",P],
+["line-height","ارتفاع السطر","المسافة بين الأسطر. جرّب القيمة واحد ثم اثنين.","line-height: 2;",LP],
+["font","اختصار الخط","يجمع النمط والسُّمك والحجم والنوع في سطر واحد.","font: italic 700 24px Georgia;",P]]],
+["text","النص","ما يخص لون النص ومحاذاته وزخرفته.",[
+["color","لون النص","يلوّن الحروف باسم لون أو بكود hex.","color: #2965f1;",P],
+["text-align","محاذاة النص","يمين أو وسط أو يسار أو ضبط الطرفين.","text-align: center;",P],
+["text-decoration","زخرفة النص","خط تحت النص أو فوقه أو وسطه، وبأي لون.","text-decoration: underline wavy #e11d48;",P],
+["text-shadow","ظل النص","إزاحة أفقية وعمودية وتمويه ثم لون.","font-size: 30px;\ncolor: #2965f1;\ntext-shadow: 3px 3px 5px #0004;",P],
+["text-overflow","اختصار النص الطويل","يعرض ثلاث نقاط عندما لا يتسع النص. تحتاج الخصائص الثلاث معاً.","width: 180px;\noverflow: hidden;\nwhite-space: nowrap;\ntext-overflow: ellipsis;",'<p class="b">هذا نص طويل جداً لن يتسع في هذا الصندوق الصغير</p>','.b{border:1px dashed #888;padding:6px}']]],
+["bg","الخلفية","لون وصورة وتدرج وشفافية.",[
+["background-color","لون الخلفية","يملأ خلف العنصر بلون.","background-color: #fde68a;\npadding: 16px;",P],
+["background","تدرج لوني","التدرج صورة تُصنع بالكود. الاتجاه ثم لونان أو أكثر.","background: linear-gradient(to left, #2965f1, #7fd4ff);\ncolor: #fff;\npadding: 18px;",P],
+["opacity","الشفافية","صفر مخفي وواحد كامل الظهور.","opacity: 0.4;\nbackground: #2965f1;\ncolor: #fff;\npadding: 16px;",P]]],
+["box","الصندوق","كل عنصر صندوق: محتوى، ثم حشو، ثم حدود، ثم هامش.",[
+["padding","الحشو الداخلي","مسافة بين النص وحدود الصندوق. لاحظ أن الخلفية تمتد تحتها.","padding: 24px;",D,'.b{background:#dbe7ff}'],
+["margin","الهامش الخارجي","مسافة تفصل الصندوق عن جيرانه. لاحظ المسافة بين الصندوقين.","margin: 20px 0;",'<div class="b">الأول</div><div class="b">الثاني</div>','.b{background:#dbe7ff;padding:10px}'],
+["border","الحدود","السُّمك ثم النمط (solid أو dashed أو dotted) ثم اللون.","border: 3px dashed #2965f1;",D,'.b{padding:14px}'],
+["border-radius","استدارة الزوايا","نصف القطر بالبكسل. خمسون بالمئة على مربع تصنع دائرة.","width: 80px;\nheight: 80px;\nborder-radius: 50%;",D,'.b{background:#2965f1;color:#fff;display:grid;place-items:center}'],
+["box-shadow","ظل الصندوق","إزاحة أفقية وعمودية ثم تمويه ثم لون.","box-shadow: 0 6px 16px rgba(0,0,0,.3);",D,'.b{padding:18px;margin:8px;border-radius:10px;background:#fff}']]],
+["pos","التموضع","وضع العنصر في مكان محدد داخل أبيه.",[
+["position: absolute","مطلق","يخرج العنصر من التدفق ويتحدد بالنسبة لأقرب أب فيه position. هنا الأب صندوق أزرق فاتح.","position: absolute;\ntop: 10px;\nleft: 10px;",PH,PS],
+["position: relative","نسبي","يزاح عن مكانه الأصلي بدون أن يتحرك الجيران.","position: relative;\ntop: 20px;\nright: 30px;",PH,'.box{height:90px;background:#eef3ff}.b{display:inline-block;background:#2965f1;color:#fff;padding:4px 10px}']]],
+["flex","فليكس Flexbox","يرتّب الأبناء في صف أو عمود. نكتب display:flex على الأب.",[
+["display: flex","تفعيل فليكس","الأبناء الثلاثة كانوا فوق بعضهم، فصاروا في صف.","display: flex;\ngap: 8px;",S3,FS],
+["justify-content","المحاذاة الرئيسية","توزيع الأبناء على طول الصف: center أو space-between أو space-around.","display: flex;\njustify-content: space-between;",S3,FS],
+["align-items","المحاذاة العمودية","محاذاة الأبناء على المحور الآخر: center أو flex-start أو flex-end.","display: flex;\nalign-items: center;\nheight: 90px;",S3,FS],
+["flex-direction","اتجاه العناصر","column يجعل الأبناء عموداً بدل صف.","display: flex;\nflex-direction: column;\ngap: 6px;",S3,FS],
+["توسيط تام","وصفة التوسيط","وسّط أي عنصر أفقياً وعمودياً. أكثر ما ستحتاجه.","display: flex;\njustify-content: center;\nalign-items: center;\nheight: 100px;",D,'.b{background:#eef3ff}']]],
+["grid","شبكة Grid","صفوف وأعمدة معاً. fr تعني جزءاً من المساحة.",[
+["grid-template-columns","ثلاثة أعمدة","repeat(3, 1fr) ثلاثة أعمدة متساوية.","display: grid;\ngrid-template-columns: repeat(3, 1fr);\ngap: 8px;",S6,FS],
+["grid-template-columns","أعمدة غير متساوية","العمود الأول ضعف الثاني.","display: grid;\ngrid-template-columns: 2fr 1fr;\ngap: 8px;",S6,FS],
+["auto-fit + minmax","شبكة متجاوبة","تتكيف عدد الأعمدة مع عرض الشاشة تلقائياً.","display: grid;\ngrid-template-columns: repeat(auto-fit, minmax(70px, 1fr));\ngap: 8px;",S6,FS]]],
+["motion","الحركة","انتقال سلس وتحويلات وحركة متكررة.",[
+["transition + hover","انتقال عند اللمس","اضغط على الصندوق. transition يجعل التغيير تدريجياً، وhover هو حالة اللمس أو مرور المؤشر.",".b {\n  transition: 0.4s;\n}\n.b:hover {\n  transform: scale(1.15) rotate(4deg);\n  background: #2965f1;\n  color: #fff;\n}",D,'.b{display:inline-block;background:#dbe7ff;padding:14px 24px;border-radius:10px}'],
+["transform","التحويل","إزاحة translate ودوران rotate وتكبير scale.","transform: rotate(-8deg) scale(1.1);",D,'.b{display:inline-block;background:#2965f1;color:#fff;padding:12px 22px;margin:14px}'],
+["@keyframes","حركة متكررة","نعرّف الحركة بـ keyframes ثم نشغّلها بـ animation.","@keyframes pulse {\n  50% { transform: scale(1.2); }\n}\n.b {\n  animation: pulse 1.2s infinite;\n}",D,'.b{display:inline-block;background:#e11d48;color:#fff;padding:12px 22px;border-radius:99px;margin:14px}']]],
+["resp","التجاوب والمتغيرات","صفحة تناسب كل الشاشات وتغيير واحد يعمّ الجميع.",[
+["var()","متغيرات CSS","نعرّف اللون مرة ونستعمله في أي مكان. غيّر القيمة في :root فيتغير الكل.",":root {\n  --main: #2965f1;\n}\n.b {\n  background: var(--main);\n  color: #fff;\n  padding: 16px;\n}",D],
+["@media","استعلام الوسائط","يطبّق النمط فقط عند شرط معين. على الهاتف ستراه أحمر.",".b {\n  background: #dbe7ff;\n  padding: 16px;\n}\n@media (max-width: 500px) {\n  .b { background: #fecaca; }\n}",D]]]
+];
+// تمارين: "نص التمرين|تعبير للتحقق" بنفس ترتيب الأمثلة
+const X=[
+["غيّر 28px إلى 40px|font-size:\\s*40px","غيّر 700 إلى 900|font-weight:\\s*900","غيّر italic إلى normal|font-style:\\s*normal","اجعل الخط Courier New, monospace|font-family:[^;]*(courier|monospace)","غيّر 2 إلى 3|line-height:\\s*3\\b","غيّر 24px إلى 36px|36px"],
+["غيّر اللون إلى red|color:\\s*(red|#f00\\b|#ff0000)","غيّر center إلى left|text-align:\\s*left","غيّر wavy إلى dotted|dotted","غيّر 3px 3px إلى 6px 6px|text-shadow:\\s*6px 6px","غيّر العرض 180px إلى 300px|width:\\s*300px"],
+["غيّر اللون إلى #bbf7d0|bbf7d0","غيّر to left إلى to bottom|to bottom","غيّر 0.4 إلى 0.8|opacity:\\s*0?\\.8"],
+["غيّر 24px إلى 50px|padding:\\s*50px","غيّر 20px 0 إلى 40px 0|margin:\\s*40px 0","غيّر dashed إلى solid|3px solid","غيّر 50% إلى 10px|border-radius:\\s*10px","غيّر 6px إلى 14px|box-shadow:\\s*0 14px"],
+["غيّر top من 10px إلى 50px|top:\\s*50px","غيّر top من 20px إلى 0|top:\\s*0"],
+["غيّر gap من 8px إلى 24px|gap:\\s*24px","غيّر space-between إلى center|justify-content:\\s*center","غيّر center إلى flex-end|align-items:\\s*flex-end","غيّر column إلى row|flex-direction:\\s*row","غيّر height من 100px إلى 160px|height:\\s*160px"],
+["غيّر 3 إلى 2 داخل repeat|repeat\\(\\s*2","غيّر 2fr 1fr إلى 1fr 3fr|1fr 3fr","غيّر 70px إلى 120px|minmax\\(\\s*120px"],
+["غيّر scale من 1.15 إلى 1.5|scale\\(1\\.5","غيّر -8deg إلى 20deg|rotate\\(20deg","غيّر 1.2s إلى 3s|pulse 3s"],
+["غيّر --main إلى #e11d48|--main:\\s*#e11d48","غيّر 500px إلى 2000px ليصير أحمر دائماً|max-width:\\s*2000px"]
+];
+const m=document.getElementById('m'),q=document.getElementById('q'),ch=document.getElementById('chips'),inst=document.getElementById('inst');
+let cur='';
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fmt=c=>c.includes('{')?c:'.b {\n  '+c.split(';').map(x=>x.trim()).filter(Boolean).join(';\n  ')+';\n}';
+const doc=(css,html,s)=>`<style>${B}${s||''}${css}</style>${html}`;
+const find=k=>{const[a,b]=k.split('_');return G[a][3][b]};
+const exr=k=>{const[a,b]=k.split('_');const s=(X[a]&&X[a][b])||'';const i=s.indexOf('|');return[s.slice(0,i),s.slice(i+1)]};
+function run(c){
+ const p=find(c.dataset.k),css=c.querySelector('.tc').value,h=c.querySelector('.th').value;
+ c.querySelector('iframe').srcdoc=doc(css,h,p[5]);
+ const [,re]=exr(c.dataset.k),st=c.querySelector('.st');
+ if(re&&new RegExp(re,'i').test(css)){st.textContent='✅ أحسنت! نجح التمرين';st.className='st ok'}
+ else{st.textContent='عدّل الكود في مربع CSS ثم شاهد النتيجة';st.className='st'}
+}
+function draw(){
+ const t=q.value.trim().toLowerCase();let out='';
+ G.forEach(([id,title,desc,ps],gi)=>{
+  if(cur&&cur!==id)return;
+  const r=ps.map((p,i)=>[p,i]).filter(([p])=>!t||p.join(' ').toLowerCase().includes(t)||(title+desc+id).toLowerCase().includes(t));
+  if(!r.length)return;
+  out+=`<div class="g"><h2>${title} <span class="en">${id}</span></h2><p>${desc}</p></div>`+
+  r.map(([p,i])=>{const k=gi+'_'+i,css=fmt(p[3]),h=p[4]||P;
+   return `<div class="c" data-k="${k}"><div class="t"><div><span class="ar">${p[1]}</span> <span class="en">${esc(p[0])}</span></div><button class="sp" data-s="${k}">🔊 استمع</button></div><p>${p[2]}</p>
+   <div class="l">محرر HTML</div><textarea class="th" rows="${h.split('\n').length+1}" spellcheck="false" dir="ltr">${esc(h)}</textarea>
+   <div class="l">محرر CSS</div><textarea class="tc" rows="${css.split('\n').length+1}" spellcheck="false" dir="ltr">${esc(css)}</textarea>
+   <div class="bs"><button class="bt" data-r="1">▶ تشغيل</button><button class="bt" data-z="1">↺ الأصل</button></div>
+   <div class="l">النتيجة</div><iframe sandbox></iframe>
+   <div class="ex"><b>تمرين:</b> ${exr(k)[0]}<div class="st"></div></div></div>`}).join('');
+ });
+ m.innerHTML=out||'<div class="e">لا نتائج. جرّب كلمة أخرى.</div>';
+ m.querySelectorAll('.c').forEach(run);
+}
+m.addEventListener('input',e=>{if(e.target.tagName==='TEXTAREA')run(e.target.closest('.c'))});
+// ملاحظة صغيرة أسفل الشاشة
+const tz=document.createElement('div');tz.id='tz';document.body.appendChild(tz);
+function note(t){tz.textContent=t;tz.style.opacity=1;clearTimeout(note.t);note.t=setTimeout(()=>tz.style.opacity=0,5000)}
+// الصوت
+const S=window.speechSynthesis;let vs=[];
+function lv(){if(S)vs=S.getVoices()}
+if(S){lv();S.onvoiceschanged=lv}
+function say(text){
+ if(!S){note('هذا المتصفح لا يدعم القراءة الصوتية');return}
+ lv();const v=vs.find(x=>/^ar/i.test(x.lang));
+ if(!v&&vs.length)note('لا يوجد صوت عربي على جهازك. ثبّته من: إعدادات تحويل النص إلى كلام');
+ S.cancel();
+ const parts=text.split(/(?<=[.،])\s+/).filter(Boolean);
+ setTimeout(()=>parts.forEach(s=>{const u=new SpeechSynthesisUtterance(s);if(v){u.voice=v;u.lang=v.lang}else u.lang='ar-SA';u.rate=.85;u.onerror=e=>{if(e.error!=='canceled'&&e.error!=='interrupted')note('تعذّر تشغيل الصوت ('+e.error+')')};S.speak(u)}),250);
+}
+m.addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b)return;
+ const c=b.closest('.c');
+ if(b.dataset.s){const p=find(b.dataset.s);say(p[1]+'. '+p[2].replace(/[A-Za-z0-9:;{}()=\/.\-]+/g,' '))}
+ if(b.dataset.r)run(c);
+ if(b.dataset.z){const p=find(c.dataset.k);c.querySelector('.th').value=p[4]||P;c.querySelector('.tc').value=fmt(p[3]);run(c)}
+});
+function chips(){ch.innerHTML=[['','الكل'],...G.map(g=>[g[0],g[1]])].map(([id,l])=>`<button class="${cur===id?'on':''}" data-id="${id}">${l}</button>`).join('')}
+ch.onclick=e=>{if(e.target.dataset.id!==undefined){cur=e.target.dataset.id;chips();draw();scrollTo(0,0)}};
+q.oninput=draw;chips();draw();
+// تثبيت PWA
+let dp;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;inst.hidden=false});
+inst.onclick=async()=>{if(dp){dp.prompt();await dp.userChoice;inst.hidden=true}};
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
